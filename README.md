@@ -16,6 +16,7 @@ This mod is currently going to stay extremely unfinished, as I don't know how to
 - Create mask item
 - Extra item slots
 - Fix 5P dialogue, maybe add more (LttM is collapsed because it's Arti's spot on the timeline)
+- Magica please add the intro cutscene feature back
 
 The work that explains what his lore was meant to be is here: https://archiveofourown.org/works/65963092
 
