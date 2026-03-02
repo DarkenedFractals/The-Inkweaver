@@ -6,7 +6,7 @@
 		"inkweaver/is_inkweaver" : true,
 		"inkweaver/NewRoom_save" : true,
 		"inkweaver/NewRoom_robo" : true,
-		"inkweaver/ctor": true,
+		"ctor": true,
 		"color": "101549",
 		"auto_grab_batflies": true,
 		"weight": 1.1,

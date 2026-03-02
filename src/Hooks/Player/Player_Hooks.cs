@@ -13,7 +13,7 @@ internal class Player_Hooks
     public static readonly PlayerFeature<bool> NewRoom_save = PlayerBool("inkweaver/NewRoom_save");
     public static readonly PlayerFeature<bool> NewRoom_robo = PlayerBool("inkweaver/NewRoom_robo");
     public static readonly PlayerFeature<bool> ctor = PlayerBool("inkweaver/ctor");
-    public static readonly PlayerFeature<bool> IsInkweaver = PlayerBool("inkweaver/is_inkweaver");
+    //public static readonly PlayerFeature<bool> IsInkweaver = PlayerBool("inkweaver/is_inkweaver");
     public static void ApplyHooks()
     {
         On.Player.ctor += Inkweaver_ctor;
@@ -25,7 +25,7 @@ internal class Player_Hooks
         orig(self, newRoom);
         try
         {
-            if (IsInkweaver.TryGet(self, out bool isInkweaver) && isInkweaver)
+            if (newRoom.game.GetStorySession.saveState.saveStateNumber == Enums.Inkweaver)
             {
                 if (NewRoom_save.TryGet(self, out bool save) && save)
                 {
@@ -70,8 +70,8 @@ internal class Player_Hooks
     }
     private static void Inkweaver_ctor(On.Player.orig_ctor orig, Player self, AbstractCreature abstractCreature, World world)
     {
-        orig(self, abstractCreature, world);
-        if (IsInkweaver.TryGet(self, out bool isInkweaver) && isInkweaver)
+        orig(self, abstractCreature, world);//IsInkweaver.TryGet(self, out bool isInkweaver) && isInkweaver
+        if (world.game.GetStorySession.saveState.saveStateNumber == Enums.Inkweaver)
         {
 
             if (self.room.game.GetStorySession.saveState.deathPersistentSaveData.ripMoon != true)
