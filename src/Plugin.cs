@@ -37,6 +37,6 @@ internal class Plugin : BaseUnityPlugin
         pl2.slugcatStats.maxFood = foodNeeded.x;
         pl2.slugcatStats.foodToHibernate = foodNeeded.y;
         pl2.playerState.foodInStomach = pl2.slugcatStats.maxFood;
-        //pl2.input = new Player.InputPackage[10];
+        pl2.input = new Player.InputPackage[10];
     }
 }

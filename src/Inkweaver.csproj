@@ -13,6 +13,7 @@
         <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
         <EnableNETAnalyzers>True</EnableNETAnalyzers>
         <AnalysisLevel>latest-recommended</AnalysisLevel>
+        <PlatformTarget>AnyCPU</PlatformTarget>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -28,22 +29,19 @@
 
     <Target Name="PostBuild" AfterTargets="PostBuildEvent">
 		<ItemGroup>
-			<RemovePlugins Include="../mod/plugins/*.dll" />
+			<RemovePlugins Include="../mod/v1.10.4/plugins/*.dll" />
 		</ItemGroup>
 		<ItemGroup>
 			<CopyPlugins Include="$(TargetPath)" />
 		</ItemGroup>
 		
         <Delete Files="@(RemovePlugins)" />
-        <Copy SourceFiles="@(CopyPlugins)" DestinationFolder="../mod/newest/plugins/" />
+        <Copy SourceFiles="@(CopyPlugins)" DestinationFolder="../mod/v1.10.4/plugins/" />
     </Target>
     
     <ItemGroup>
-      <Reference Include="Assembly-CSharp">
-        <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Rain World\RainWorld_Data\Managed\Assembly-CSharp.dll</HintPath>
-      </Reference>
       <Reference Include="Assembly-CSharp-firstpass">
-        <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Rain World\RainWorld_Data\Managed\Assembly-CSharp-firstpass.dll</HintPath>
+        <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Rain World\BepInEx\utils\PUBLIC-Assembly-CSharp.dll</HintPath>
       </Reference>
       <Reference Include="BepInEx">
         <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Rain World\BepInEx\core\BepInEx.dll</HintPath>
@@ -51,8 +49,8 @@
       <Reference Include="CustomSlugcatUtils">
         <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\workshop\content\312520\3475618469\plugins\CustomSlugcatUtils.dll</HintPath>
       </Reference>
-      <Reference Include="ExtendedSlugbaseFeatures">
-        <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\workshop\content\312520\3469789934\newest\plugins\ExtendedSlugbaseFeatures.dll</HintPath>
+      <Reference Include="ExtendedSlugbase">
+        <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\workshop\content\312520\3469789934\newest\plugins\ExtendedSlugbase.dll</HintPath>
       </Reference>
       <Reference Include="HOOKS-Assembly-CSharp">
         <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Rain World\BepInEx\plugins\HOOKS-Assembly-CSharp.dll</HintPath>
@@ -68,6 +66,9 @@
       </Reference>
       <Reference Include="MonoMod.Utils">
         <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Rain World\BepInEx\core\MonoMod.Utils.dll</HintPath>
+      </Reference>
+      <Reference Include="Assembly-CSharp">
+        <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Rain World\BepInEx\utils\PUBLIC-Assembly-CSharp.dll</HintPath>
       </Reference>
       <Reference Include="SlugBase">
         <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\workshop\content\312520\2933196558\newest\plugins\SlugBase.dll</HintPath>

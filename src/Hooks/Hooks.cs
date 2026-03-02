@@ -14,6 +14,7 @@ public static class Hooks
     private static void ApplyHooks()
     {
         SlideShow_HooksIL.ApplyHooks();
+        World_HooksIL.ApplyHooks();
         Player_Hooks.ApplyHooks();
     }
     private static void RainWorld_OnModsInit(On.RainWorld.orig_OnModsInit orig, RainWorld self)

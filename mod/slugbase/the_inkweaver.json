@@ -3,10 +3,6 @@
 	"name": "The Inkweaver",
 	"description": "An in-development campaign for my OC, Inkweaver.<LINE>This is currently in development and likely won't get finished.",
 	"features": {
-		"inkweaver/is_inkweaver" : true,
-		"inkweaver/NewRoom_save" : true,
-		"inkweaver/NewRoom_robo" : true,
-		"ctor": true,
 		"color": "101549",
 		"auto_grab_batflies": true,
 		"weight": 1.1,
@@ -24,6 +20,11 @@
 			"Scavengers": {
 				"like": 0.8,
 				"locked": false
+			}
+		},
+		"creature_relationships": {
+			"Scavenger": {
+				"Ignore": 0.5
 			}
 		},
 		"diet": {
@@ -57,54 +58,52 @@
 		"start_room": [
 			"LC_B04"
 		],
-		"start_position": {
-			"LC_B04": [
-				63,
-				13
-			]
-		},
-		"intro_cutscene": {
-			"LC_B04": {
-				"player_grasps": {
-					"AbstractDataPearl": {
-						"type": "DataPearl",
-						"dataPearlType": "misc2"
-					},
-					"AbstractSpear": {
-						"electric": true,
-						"electricCharge": 0
-					}
-				},
-				"inputs": [
-					{
-						"time": 80,
-						"x": -1,
-						"y": 1
-					},
-					{
-						"time": 212,
-						"x": -1,
-						"y": 0
-					},
-					{
-						"time": 8,
-						"x": -1,
-						"y": 1
-					},
-					{
-						"time": 45,
-						"x": -1,
-						"y": 0
-					},
-					{
-						"time": 100,
-						"x": 0,
-						"y": 0
-					}
-				],
-				"food": 4
-			}
-		},
+		"start_position": [
+			63,
+			13
+		],
+		// "intro_cutscene": {
+		// 	"LC_B04": {
+		// 		"player_grasps": {
+		// 			"AbstractDataPearl": {
+		// 				"type": "DataPearl",
+		// 				"dataPearlType": "misc2"
+		// 			},
+		// 			"AbstractSpear": {
+		// 				"electric": true,
+		// 				"electricCharge": 0
+		// 			}
+		// 		},
+		// 		"inputs": [
+		// 			{
+		// 				"time": 80,
+		// 				"x": -1,
+		// 				"y": 1
+		// 			},
+		// 			{
+		// 				"time": 212,
+		// 				"x": -1,
+		// 				"y": 0
+		// 			},
+		// 			{
+		// 				"time": 8,
+		// 				"x": -1,
+		// 				"y": 1
+		// 			},
+		// 			{
+		// 				"time": 45,
+		// 				"x": -1,
+		// 				"y": 0
+		// 			},
+		// 			{
+		// 				"time": 100,
+		// 				"x": 0,
+		// 				"y": 0
+		// 			}
+		// 		],
+		// 		"food": 4
+		// 	}
+		// },
 		"has_dreams": false,
 		"cycle_length_min": 6.75,
 		"cycle_length_max": 13.25,
@@ -129,29 +128,26 @@
 			"SB",
 			"OE"
 		],
-		"craft": [
-			{
-				"can_craft_single": true,
-				"craft_items": [
-					{
-						"type": "Spear",
-						"data": 0
+		"crafting": {
+			"one_handed_recipes": {
+				"Spear": {
+					"cost": 3,
+					"result": {
+						"AbstractSpear": {
+							"data": 2
+						}
 					}
-				],
-				"craft_cost": 3,
-				"craft_result": {
-					"type": "Spear",
-					"data": 2
 				}
 			}
-		],
+		},
 		"spawn_karma_flowers": true,
 		"can_pass_OE_gate": [
 			true,
-			true
+			false
 		],
 		"reveal_mark_overtime": 2,
 		"can_access_whitetokens": true,
-		"take_spears_from_wall": false
+		"take_spears_from_wall": false,
+		"has_id_drone": true
 	}
 }
