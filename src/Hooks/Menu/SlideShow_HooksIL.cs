@@ -30,12 +30,13 @@ internal class SlideShow_HooksIL
             ILCursor cursor = new(il);
 
             if (cursor.TryGotoNext(
-                MoveType.After,
-                x => x.MatchStfld<SaveState>(nameof(SaveState.skipNextCycleFoodDrain))))
+                MoveType.Before,
+                x => x.MatchStfld<SaveState>(nameof(RainWorldGame.ForceSaveNewDenLocation))))
             {
                 cursor.Emit(OpCodes.Ldarg_0); // Emits the instance of RainWorldGame onto the stack
                 cursor.Emit(OpCodes.Ldloc_0); // Emits the text local variable onto the stack
-                static string SaveDenLocation(RainWorldGame game, string text)
+                cursor.Emit(OpCodes.Ldc_I4, 0); // Emits the integer 0 onto the stack
+                static void ForceSaveNewDenLocation(RainWorldGame game, string roomName, bool saveWorldStates)
                 {
                     Plugin.Logger.LogWarning("attempting to save!");
                     if (game.StoryCharacter == Enums.Inkweaver)
@@ -44,17 +45,16 @@ internal class SlideShow_HooksIL
                         game.GetStorySession.saveState.deathPersistentSaveData.altEnding = true;
                         game.GetStorySession.saveState.deathPersistentSaveData.ascended = false;
                         game.GetStorySession.saveState.deathPersistentSaveData.karma = game.GetStorySession.saveState.deathPersistentSaveData.karmaCap;
-                        text = "OE_SEXTRA";
+                        roomName = "OE_SEXTRA";
                     }
                     else
                     {
                         Plugin.Logger.LogWarning("Not Inkweaver!");
                     }
-                    return text;
                 }
-                cursor.EmitDelegate(SaveDenLocation);
+                cursor.EmitDelegate(ForceSaveNewDenLocation);
 
-                Plugin.Logger.LogDebug(il);
+                //Plugin.Logger.LogDebug(il);
             }
         }
         catch (Exception ex)
@@ -90,7 +90,7 @@ internal class SlideShow_HooksIL
             c.Emit(OpCodes.Ldarg, 0);
             c.EmitDelegate(IsNotGourmandOrInkweaver);
 
-            Plugin.Logger.LogDebug(il);
+            //Plugin.Logger.LogDebug(il);
         }
         catch (Exception ex)
         {
@@ -113,7 +113,7 @@ internal class SlideShow_HooksIL
                 c.Emit(OpCodes.Ldarg, 0);
                 c.EmitDelegate(IsGourmandOrInkweaver);
             }
-            Plugin.Logger.LogDebug(il);
+            //Plugin.Logger.LogDebug(il);
         }
         catch (Exception ex)
         {

@@ -7,10 +7,10 @@ using RWCustom;
 namespace Inkweaver;
 
 [BepInDependency("slime-cubed.slugbase")] // SlugBase
-[BepInPlugin(MOD_ID, "The Inkweaver", "0.3.0")]
+[BepInDependency("magica.extendedslugbasefeatures")] // Extended SlugBase Features
+[BepInPlugin("darkenedfractals.inkweaver", "The Inkweaver", "0.4.0")]
 internal class Plugin : BaseUnityPlugin
 {
-    public const string MOD_ID = "darkninja.inkweaver";
     public static new ManualLogSource Logger { get; private set; } = null!;
 
     public void OnEnable()

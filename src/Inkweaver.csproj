@@ -29,14 +29,14 @@
 
     <Target Name="PostBuild" AfterTargets="PostBuildEvent">
 		<ItemGroup>
-			<RemovePlugins Include="../mod/v1.10.4/plugins/*.dll" />
+			<RemovePlugins Include="../mod/v1.11.6/plugins/*.dll" />
 		</ItemGroup>
 		<ItemGroup>
 			<CopyPlugins Include="$(TargetPath)" />
 		</ItemGroup>
 		
         <Delete Files="@(RemovePlugins)" />
-        <Copy SourceFiles="@(CopyPlugins)" DestinationFolder="../mod/v1.10.4/plugins/" />
+        <Copy SourceFiles="@(CopyPlugins)" DestinationFolder="../mod/v1.11.6/plugins/" />
     </Target>
     
     <ItemGroup>
@@ -94,6 +94,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+      <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
     </ItemGroup>
 </Project>

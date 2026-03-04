@@ -9,7 +9,7 @@ namespace Inkweaver
         {
             try
             {
-                On.GhostWorldPresence.SpawnGhost += World_SpawnGhost;
+                On.GhostWorldPresence.SpawnGhost += GhostWorldPresence_SpawnGhost;
             }
             catch (Exception ex)
             {
@@ -17,12 +17,15 @@ namespace Inkweaver
             }
         }
 
-        private static bool World_SpawnGhost(On.GhostWorldPresence.orig_SpawnGhost orig, GhostWorldPresence.GhostID ghostID, int karma, int karmaCap, int ghostPreviouslyEncountered, bool playingAsRed)
+        public static bool GhostWorldPresence_SpawnGhost(On.GhostWorldPresence.orig_SpawnGhost orig, GhostWorldPresence.GhostID ghostID, int karma, int karmaCap, int ghostPreviouslyEncountered, bool playingAsRed)
         {
+            //Plugin.Logger.LogDebug("GhostWorldPresence_SpawnGhost : Trying");
             try
             {
-                if (Custom.rainWorld.progression.currentSaveState.cycleNumber == 0)
+                SaveState saveState = Custom.rainWorld.progression.currentSaveState;
+                if (saveState.saveStateNumber == Enums.Inkweaver && saveState.cycleNumber == 0)
                 {
+                    //Plugin.Logger.LogDebug("GhostWorldPresence_SpawnGhost : Returning false");
                     return false;
                 }
             }
@@ -30,6 +33,7 @@ namespace Inkweaver
             {
                 Plugin.Logger.LogError(ex);
             }
+            //Plugin.Logger.LogDebug("GhostWorldPresence_SpawnGhost : Returning orig");
             return orig(ghostID, karma, karmaCap, ghostPreviouslyEncountered, playingAsRed);
         }
     }

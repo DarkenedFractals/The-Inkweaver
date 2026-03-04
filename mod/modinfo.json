@@ -1,9 +1,9 @@
 ﻿{
-	"id": "darkninja.inkweaver",
+	"id": "darkenedfractals.inkweaver",
 	"name": "The Inkweaver",
-	"version": "0.3.0",
-	"target_game_version": "v1.10.4",
-	"authors": "DarkNinja (mod creator, character owner, and development leader) - Urarun (artist)",
+	"version": "0.4.0",
+	"target_game_version": "v1.11.6",
+	"authors": "DarkenedFractals (mod creator and character owner) - Urarun (artist)",
 	"description": "A determined slugcat, raised by scavengers, must find a new home for himself.",
 	"requirements": [ "slime-cubed.slugbase", "customslugcatutils", "moreslugcats", "magica.extendedslugbasefeatures" ],
 	"requirements_names": [ "SlugBase", "Custom Slugcat Utils", "More Slugcats Expansion", "Extended Slugbase Features" ],

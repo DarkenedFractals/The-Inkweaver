@@ -56,54 +56,8 @@
 		"the_mark": true,
 		"the_glow": true,
 		"start_room": [
-			"LC_B04"
+			"LC_shelter_above"
 		],
-		"start_position": [
-			63,
-			13
-		],
-		// "intro_cutscene": {
-		// 	"LC_B04": {
-		// 		"player_grasps": {
-		// 			"AbstractDataPearl": {
-		// 				"type": "DataPearl",
-		// 				"dataPearlType": "misc2"
-		// 			},
-		// 			"AbstractSpear": {
-		// 				"electric": true,
-		// 				"electricCharge": 0
-		// 			}
-		// 		},
-		// 		"inputs": [
-		// 			{
-		// 				"time": 80,
-		// 				"x": -1,
-		// 				"y": 1
-		// 			},
-		// 			{
-		// 				"time": 212,
-		// 				"x": -1,
-		// 				"y": 0
-		// 			},
-		// 			{
-		// 				"time": 8,
-		// 				"x": -1,
-		// 				"y": 1
-		// 			},
-		// 			{
-		// 				"time": 45,
-		// 				"x": -1,
-		// 				"y": 0
-		// 			},
-		// 			{
-		// 				"time": 100,
-		// 				"x": 0,
-		// 				"y": 0
-		// 			}
-		// 		],
-		// 		"food": 4
-		// 	}
-		// },
 		"has_dreams": false,
 		"cycle_length_min": 6.75,
 		"cycle_length_max": 13.25,
@@ -124,17 +78,43 @@
 		"expedition_enabled": false,
 		"expedition_description": "I'm not sure if this would even work, so I have disabled this.<LINE>How did you even select this?",
 		"guide_overseer": 1,
+		"guide_overseer_color": "72E6C4",
 		"guide_region_priority": [
+			"UW",
 			"SB",
 			"OE"
 		],
 		"crafting": {
 			"one_handed_recipes": {
-				"Spear": {
+				"AbstractSpear": {
 					"cost": 3,
 					"result": {
 						"AbstractSpear": {
-							"data": 2
+							"explosive": false,
+							"electric": true
+						}
+					}
+				}
+			},
+			"two_handed_recipes": {
+				"Spear": {
+					"FlareBomb": {
+						"AbstractSpear": {
+							"explosive": false,
+							"electric": true,
+							"electricCharge": 1
+						}
+					}
+				}
+			},
+			"swallow_recipes": {
+				"Rock": {
+					"cost": 2,
+					"result": {
+						"AbstractConsumable": {
+							"type": "GooieDuck",
+							"originRoom": -1,
+							"placedObjectIndex": -1
 						}
 					}
 				}
@@ -145,7 +125,7 @@
 			true,
 			false
 		],
-		"reveal_mark_overtime": 2,
+		"reveal_mark_overtime": 5,
 		"can_access_whitetokens": true,
 		"take_spears_from_wall": false,
 		"has_id_drone": true
