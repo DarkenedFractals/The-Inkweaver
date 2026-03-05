@@ -11,6 +11,7 @@ This mod includes a slugcat named Inkweaver, my primary and only slugcat OC. Uni
 - There are two endings, one must be achieved after the other: (NOT IMPLEMENTED YET)
     - First when you reach Outer Expanse by using your Citizen ID Drone to force-open the gate. Make it to Journey's End. Pre-incident Artificer should be there. The lore has been updated for this, check the AO3 work.
     - Second when you get back to the Metropolis gate, where you meet post-incident Arti about to go through and convince her to stop with her revenge plot, because, yay, Ink and Arti are mates. Again, the lore has been finally adjusted to make this work right. The save will lock after this.
+
 This mod is currently going to stay extremely unfinished, as I don't know how to code C#. But here's a general TODO in no particular order:
 - Create ending triggers and cutscenes
 - Create mask item
