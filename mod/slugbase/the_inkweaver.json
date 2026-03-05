@@ -45,7 +45,7 @@
 				"story": "000000"
 			}
 		],
-		"back_spear": true,
+		"back_spear": false,
 		"can_maul": true,
 		"maul_blacklist": [
 			"Scavenger"
